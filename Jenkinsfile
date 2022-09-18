@@ -19,7 +19,7 @@ pipeline{
 
         stage('Healthcheck'){
             steps{
-               sh '/home/ec2-user/HelloWorldMaven/script.sh'
+               sh 'sh -x script.sh'
             }
         }
 
