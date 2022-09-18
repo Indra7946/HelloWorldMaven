@@ -19,7 +19,7 @@ pipeline{
 
         stage('Healthcheck'){
             steps{
-               sh script.sh
+               sh "script.sh"
             }
         }
 
