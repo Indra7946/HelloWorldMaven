@@ -5,6 +5,11 @@ pipeline{
 	maven 'Maven'
 }
     stages{
+	stage('Clean_Workspace'){
+		steps{
+			cleanWs();
+		}
+	}
         stage('checkout'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkinstoken', url: 'https://github.com/Indra7946/HelloWorldMaven.git']]])
