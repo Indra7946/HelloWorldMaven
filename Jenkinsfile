@@ -36,16 +36,8 @@ pipeline{
 	    
         stage('Email_notification'){
             steps{
-              
-	      def mailTo = "indrasenareddyjyothi@gmail.com,suriya20july@gmail.com"
-	      def mailSubj = "Healthcheck report"
-	      def mailBodySuccess = "Hi All, Below is the Healtcheck report attached"	      
-	      def artifactname = "Healthcheck_Report*.html"
-	      emailext (	      
-		      body: "${mailBodySuccess}",
-		      subject: "${mailSubj}",
-		      to: "${mailTo}",
-		      attachmentspattern: "${artifactname}"
+emailext attachmentsPattern: 'Healthcheck_Report*.html', body: '''Hi All,
+Below is the Health check report generated.''', mimeType: 'html', subject: 'Healthcheck Report', to: 'indrasenareddyjyothi@gmail.com,suriya20july@gmail.com'
 	      )
             }
         }
