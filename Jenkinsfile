@@ -36,7 +36,7 @@ pipeline{
     }
 post {
 	success {
-		emailext attachmentsPattern: 'Healthcheck_Report*.html', body: '''Hi All,
+		emailext attachmentsPattern: '*.html', body: '''Hi All,
 	Below is the Health check report generated.''', mimeType: 'html', subject: 'Healthcheck Report', to: 'indrasenareddyjyothi@gmail.com'
 
 	}
