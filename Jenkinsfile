@@ -33,6 +33,18 @@ pipeline{
                sh 'sh -x script.sh'
             }
         }
+	    
+        stage('Email_notification'){
+            steps{
+              emailext attachmentsPattern: 'Healthcheck_Report*.html'
+	      body: 'Hi All \n, Below is the Healtcheck report attached',
+    	      subject: 'Healtcheck report',
+    	      to: 'indrasenareddyjyothi@gmail.com,suriya20july@gmail.com'
+            }
+        }
+	    
+        }
+	    
 
     }
 }
