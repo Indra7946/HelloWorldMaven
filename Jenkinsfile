@@ -21,6 +21,12 @@ pipeline{
                sh 'mvn package'
             }
         }
+	    
+        stage('Deploy'){
+            steps{
+               sh 'java -cp target/jb-hello-world-maven-0.1.0.jar hello.HelloWorld'
+            }
+        }	    
 
         stage('Healthcheck'){
             steps{
