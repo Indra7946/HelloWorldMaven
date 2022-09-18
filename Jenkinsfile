@@ -33,15 +33,12 @@ pipeline{
                sh 'sh -x script.sh'
             }
         }
-	    
-        stage('Email_notification'){
-            steps{
-emailext attachmentsPattern: 'Healthcheck_Report*.html', body: '''Hi All,
-Below is the Health check report generated.''', mimeType: 'html', subject: 'Healthcheck Report', to: 'indrasenareddyjyothi@gmail.com,suriya20july@gmail.com'
-	      
-            }
-        }
-	    	    
-
     }
+post {
+	success {
+		emailext attachmentsPattern: 'Healthcheck_Report*.html', body: '''Hi All,
+	Below is the Health check report generated.''', mimeType: 'html', subject: 'Healthcheck Report', to: 'indrasenareddyjyothi@gmail.com,suriya20july@gmail.com'
+
+	}
+}
 }
